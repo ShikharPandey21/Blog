@@ -1,17 +1,15 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
 
 function App() {
-  console.log(import.meta.env.VITE_APPWRITE_URL)
+  console.log(import.meta.env.VITE_APPWRITE_URL);
   return (
     <>
-    <p>Mega Blog project 
-      
-    </p>
+      <p>Mega Blog project</p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

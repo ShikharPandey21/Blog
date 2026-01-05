@@ -41,20 +41,20 @@ export class AuthServices {
     }
   }
 
-  async getCurrentUSer(){
+  async getCurrentUSer() {
     try {
-        return await this.account.get()
+      return await this.account.get();
     } catch (error) {
-        console.log("Appwrite service :: getCurrentUser::error",error);
+      console.log("Appwrite service :: getCurrentUser::error", error);
     }
     return null;
   }
 
-  async logout(){
+  async logout() {
     try {
-        await this.account.deleteSessions()
+      await this.account.deleteSessions();
     } catch (error) {
-        console.log("Appwrie service :: logout :: error", error)
+      console.log("Appwrie service :: logout :: error", error);
     }
   }
 }

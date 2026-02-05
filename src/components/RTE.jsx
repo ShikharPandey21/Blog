@@ -1,9 +1,8 @@
 import React from 'react'
 
-function RTE() {
+export default function RTE() {
   return (
     <div>RTE</div>
   )
 }
 
-export default RTE

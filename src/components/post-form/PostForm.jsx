@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux'
 
 function PostForm() {
   return (
-    <div>PostForm</div>
+    <div>Postform</div>
   )
 }
 

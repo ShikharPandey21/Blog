@@ -21,28 +21,43 @@ function PostForm({post}) {
   const userData = useSelector(state => state.user.userData)
 
   const submit = async(data)=>{
-    if(data){
+    if(post){
       const file = data.image[0]? appwriteService.uploadFile(data.image[0]): null
-    }
+    
 
     if(file){
       appwriteService.deleteFile(post.featuredImage)
     }
 
-    const dbPost = await appwriteService.updatePost(post.$id, {
+    const dbPost = await appwriteService.updatePost
+    (post.$id, {
       ...data,
       featuredImage: file? file.$id : undefined,
-
+    })
       if(dbPost){
         navigate(`/post/${dbPost.$id}`)
       }
+    } else{
+      const file = await appwriteService.uploadFile(data.image[0]);
+      
+      if(file){
+        const fileId = file.$id
+        data.featuredImage = fileId
+        await appwriteService.createPost({
+          ...data,
+          userId : userData.$id
+        })
+
+      }
     }
-  
-  )
+
+
+     
+}
   }
   return (
     <div>Postform</div>
   )
-}
+
 
 export default PostForm

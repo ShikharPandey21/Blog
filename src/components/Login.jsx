@@ -17,7 +17,7 @@ function Login() {
     try {
       const session = await authService.login(data);
       if (session) {
-        const userData = await authService.getCurrentUSer();
+        const userData = await authService.getCurrentUser();
         if (userData) dispatch(authLogin(userData));
         navigate("/");
       }
@@ -71,9 +71,9 @@ function Login() {
             label = "Password : "
             placeholder ="Enter your password"
             type = "password"
-            {...register("password"),{
+            {...register("password",{
               required:true,
-            }}
+            })}
             />
             <Button type="submit"
             className = "w-full"

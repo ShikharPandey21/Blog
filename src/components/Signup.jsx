@@ -16,14 +16,14 @@ function Signup() {
     setError("");
 
     try {
-      const userData = await authService.createAccount(data);
-      if (userData) {
-        const userData = await authService.getCurrentUSer();
-        if (userData) dispatch(login(userData));
-        navigate("/");
-      }
+      const account = await authService.createAccount(data);
+if (account) {
+  const loggedInUser = await authService.getCurrentUser();
+  if (loggedInUser) dispatch(login(loggedInUser));
+  navigate("/");
+}
     } catch (error) {
-      setError;
+      setError(error.message);
     }
   };
   return (
@@ -76,9 +76,9 @@ function Signup() {
                 label = "Password : "
                 placeholder ="Enter your password"
                 type = "password"
-                {...register("password"),{
+                {...register("password",{
                 required:true,
-                }}
+                })}
                 />
                 <Button type="submit"
                 className = "w-full"

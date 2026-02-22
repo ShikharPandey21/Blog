@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import authService from "../appwrite/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { data, Link, useNavigate } from "react-router-dom";
 import { login } from "../store/authSlice";
 import { Button, Input, Logo } from "./index";
 import { useDispatch } from "react-redux";
@@ -55,9 +55,9 @@ if (account) {
                 <Input 
                 label = "Full name"
                 placeholder = "Enter your full name"
-                {...register("name"),{
+                {...register("name",{
                     required:true,
-                }}
+                })}
                 />
                 <Input
                 label = "email"
@@ -91,3 +91,4 @@ if (account) {
 }
 
 export default Signup;
+console.log(data)

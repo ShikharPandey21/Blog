@@ -11,7 +11,7 @@ export class AuthServices {
       .setProject(conf.appwriteProjectId);
     this.account = new Account(this.client);
   }
-  async createAccount(email, password, name) {
+  async createAccount({email, password, name}) {
     try {
       const userAccount = await this.account.create({
         userId: ID.unique(),
